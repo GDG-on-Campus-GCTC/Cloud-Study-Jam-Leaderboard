@@ -93,7 +93,7 @@ export default function Home() {
   }, []);
 
   const totalBadgesEarned = data.reduce((acc, participant) => acc + participant["# of Skill Badges Completed"], 0);
-  const averageProgress = totalParticipants > 0 ? (totalBadgesEarned / totalParticipants).toFixed(2) : 0;
+  const averageProgress = totalParticipants > 0 ? (totalBadgesEarned / (totalParticipants * 100)).toFixed(2) : 0;
   const topPerformer = lockedPlayersData.length > 0 ? lockedPlayersData[0] : {
     "User Name": "N/A",
     "Google Cloud Skills Boost Profile URL": "#",
@@ -117,8 +117,8 @@ export default function Home() {
     (participant) => Number(participant["# of Arcade Games Completed"] || 0) >= 1
   ).length;
 
-  const skillBadges19Percentage = Math.min((participantsWith19SkillBadges / 50) * 100, 100).toFixed(1);
-  const arcadeGamesPercentage = Math.min((participantsWithAnyArcadeGames / 50) * 100, 100).toFixed(1);
+  const skillBadges19Percentage = Math.min((participantsWith19SkillBadges / 100) * 100, 100).toFixed(1);
+  const arcadeGamesPercentage = Math.min((participantsWithAnyArcadeGames / 100) * 100, 100).toFixed(1);
 
   const performanceData = Array.from({ length: 20 }, (_, i) => {
     const count = data.filter(p => p['# of Skill Badges Completed'] === i).length;
@@ -477,20 +477,8 @@ export default function Home() {
               </svg>
             </div>
             <div className="metric-content">
-              <h3 className="metric-label">Top Performer</h3>
-              {topPerformer["Google Cloud Skills Boost Profile URL"] ? (
-                <a 
-                  href={topPerformer["Google Cloud Skills Boost Profile URL"]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="metric-value-name hover:opacity-80 transition-opacity duration-200"
-                  title="View Google Cloud Skills Boost Profile"
-                >
-                  {topPerformer["User Name"]}
-                </a>
-              ) : (
-                <p className="metric-value-name">{topPerformer["User Name"]}</p>
-              )}
+              <h3 className="metric-label">Skill Badges</h3>
+              <p className="metric-value">51</p>
             </div>
           </div>
 
@@ -556,20 +544,8 @@ export default function Home() {
               </svg>
             </div>
             <div className="metric-content">
-              <h3 className="metric-label">Top Performer</h3>
-              {topPerformer["Google Cloud Skills Boost Profile URL"] ? (
-                <a 
-                  href={topPerformer["Google Cloud Skills Boost Profile URL"]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="metric-value-name hover:opacity-80 transition-opacity duration-200"
-                  title="View Google Cloud Skills Boost Profile"
-                >
-                  {topPerformer["User Name"]}
-                </a>
-              ) : (
-                <p className="metric-value-name">{topPerformer["User Name"]}</p>
-              )}
+              <h3 className="metric-label">Skill Badges</h3>
+              <p className="metric-value">51</p>
             </div>
           </div>
 
@@ -605,8 +581,8 @@ export default function Home() {
             <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-1">
               Achievement Goals
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-xs mb-4">
-              Progress towards 50 students
+<p className="text-gray-600 dark:text-gray-300 text-xs mb-4">
+              Progress towards 100 students
             </p>
             
             <div className="space-y-4">
@@ -692,7 +668,7 @@ export default function Home() {
                     Achievement Goals
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
-                    Progress towards 50 students
+                    Progress towards 100 students
                   </p>
                 </div>
                 

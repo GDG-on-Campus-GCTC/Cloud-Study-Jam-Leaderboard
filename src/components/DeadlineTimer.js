@@ -1,7 +1,7 @@
 'use client'
 
 const DeadlineTimer = () => {
-  const message = 'The Cloud Study Jam Campaign Has Officially Concluded!☁🎉 Stay tuned till monday for final leaderboard!';
+  const message = 'Campaign Completed! ☁️ Thank you for powering the Google Cloud Study Jams journey.';
 
   return (
     <section className="w-full my-8">

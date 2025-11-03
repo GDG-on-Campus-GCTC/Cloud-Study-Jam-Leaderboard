@@ -12,9 +12,9 @@ export const metadata = {
   title: "Google Cloud Study Jams Leaderboard - Modern",
   description: 'Leaderboard for Google Cloud Study Jams',
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: '/assets/cloudLg.svg',
+    shortcut: '/assets/cloudLg.svg',
+    apple: '/assets/cloudLg.svg',
   },
 }
 
