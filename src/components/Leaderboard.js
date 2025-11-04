@@ -59,7 +59,7 @@ function Leaderboard({ topPerformer }) {
     newMilestoneParticipants.sort(sortByScore);
     otherParticipants.sort(sortByScore);
 
-    return [...lockedParticipants, ...newMilestoneParticipants, ...otherParticipants];
+    return [...lockedParticipants, ...newMilestoneParticipants, ...otherParticipants].slice(0, 100);
   });
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -133,13 +133,7 @@ function Leaderboard({ topPerformer }) {
                     <td className="p-4">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold">{displayRank}</span>
-                        {isCampaignCompleter && (
-                          <div className="flex items-center">
-                            <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                          </div>
-                        )}
+                        
                       </div>
                     </td>
                     <td className="p-4">
@@ -151,7 +145,7 @@ function Leaderboard({ topPerformer }) {
                             rel="noopener noreferrer"
                             className={`transition-colors duration-200 ${
                               isCampaignCompleter 
-                                ? "text-yellow-600 group-hover:text-yellow-500 font-bold" 
+                                ? "" 
                                 : "text-[var(--color-primary)] group-hover:text-[var(--color-accent)]"
                             }`}
                             title="View Google Cloud Skills Boost Profile"
@@ -161,7 +155,7 @@ function Leaderboard({ topPerformer }) {
                         ) : (
                           <span className={`${
                             isCampaignCompleter 
-                              ? "text-yellow-600 group-hover:text-yellow-500 font-bold" 
+                              ? "" 
                               : "text-[var(--color-primary)] group-hover:text-[var(--color-accent)]"
                           }`}>
                             {participant["User Name"]}
