@@ -26,7 +26,7 @@ function ParticipantCard({ participant, position, topPerformer }) {
               rel="noopener noreferrer"
               className={`transition-colors duration-200 ${
                 isCampaignCompleter 
-                  ? "text-yellow-600 font-semibold" 
+                  ? "text-[var(--color-primary)] md:text-yellow-600 font-semibold" 
                   : "text-[var(--color-primary)]"
               }`}
               title="View Google Cloud Skills Boost Profile"
@@ -36,7 +36,7 @@ function ParticipantCard({ participant, position, topPerformer }) {
           ) : (
             <span className={`${
               isCampaignCompleter 
-                ? "text-yellow-600 font-semibold" 
+                ? "text-[var(--color-primary)] md:text-yellow-600 font-semibold" 
                 : "text-[var(--color-primary)]"
             }`}>
               {participant["User Name"]}

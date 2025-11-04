@@ -117,8 +117,9 @@ export default function Home() {
     (participant) => Number(participant["# of Arcade Games Completed"] || 0) >= 1
   ).length;
 
-  const skillBadges19Percentage = Math.min((participantsWith19SkillBadges / 100) * 100, 100).toFixed(1);
-  const arcadeGamesPercentage = Math.min((participantsWithAnyArcadeGames / 100) * 100, 100).toFixed(1);
+  // Calculate percentages based on total completions out of 50 students goal
+  const skillBadges19Percentage = Math.min((totalBadgesEarned / 50) * 100, 100).toFixed(1);
+  const arcadeGamesPercentage = Math.min((gameWinners / 50) * 100, 100).toFixed(1);
 
   const performanceData = Array.from({ length: 20 }, (_, i) => {
     const count = data.filter(p => p['# of Skill Badges Completed'] === i).length;
@@ -582,7 +583,7 @@ export default function Home() {
               Achievement Goals
             </h3>
 <p className="text-gray-600 dark:text-gray-300 text-xs mb-4">
-              Progress towards 100 students
+              Progress towards 50 students
             </p>
             
             <div className="space-y-4">
@@ -668,7 +669,7 @@ export default function Home() {
                     Achievement Goals
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
-                    Progress towards 100 students
+                    Progress towards 50 students
                   </p>
                 </div>
                 
